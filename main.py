@@ -55,3 +55,40 @@ def init():
     line2.set_data([], [])
     return line1, line2
 
+#this function updates the data for each frame in the animation
+#it calculates th e spectral radiance of the current frame's wavelegth range 
+#using both Planck's and Rayleigh-Jeans Law. It then updates the plot with the new data:
+def update(frame):
+    current_wavelengths = wavelengths[:frame]
+    B_planck = plancks_law(current_wavelengths, T)
+    B_rayleigh_jeans = rayleigh_jeans_law(current_wavelengths, T)
+
+    #convert wavelength to nm:
+    line1.set_data(current_wavelengths * 1e9, B_planck)
+    line2.set_data(current_wavelengths * 1e9,  B_rayleigh_jeans)
+    return line1, line2
+
+#creating the animation:
+anim = animation.FuncAnimation(fig, update, frames=len(wavelengths), init_func=init, blit=True, interval=50)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
