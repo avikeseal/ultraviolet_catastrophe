@@ -30,3 +30,21 @@ def plancks_law(wavelength, T):
 #which is valid for longer wavelengths:
 def rayleigh_jeans_law(wavelength, T):
     return (2*c*k_B*T) / (wavelength**4)
+
+#initializing the plot:
+#ax.set_xlim and ax.set_ylim define the wavelength (x-axis) and radiance (y-axis).
+#we also create two lines, one for plancks and one for rayleigh-jeans:
+fig, ax =  plt.subplots(figsize=(10, 6))
+
+#wavelengths in nm converted from m:
+ax.set_xlim(0, 3000)
+#radiance values, adjusted for visualization:
+ax.set_ylim(0, 2e13)
+
+ax.set_xlabel('Wavelength (nm)')
+ax.set_ylabel('Spectral Radiance')
+ax.set_title("Trnasition from Planck's Law to Rayleigh-Jeans Law:")
+line1, = ax.plot([], [], label="Planck's Law")
+line2, = ax.plot([], [], label="Rayleigh-Jeans Law", linestyle='dashed')
+ax.legend()
+
