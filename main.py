@@ -19,3 +19,8 @@ T = 5000
 #Starts from 1 nanometer (1e-9 meters) to 3 micrometers (3e-6 meters)
 #500 points between 1 nm to 3 micrometers
 wavelengths = np.linspace(1e-9, 3e-6, 500)
+
+#let's define Placnk's law:
+#this function calculates spectral radiance for a given wavelength and temperature:
+def plancks_law(wavelength, T):
+    return  (2*h*c**2) / ((wavelength**5) * 1)  / (np.exp((h * c) / (wavelength * k_B * T)) - 1)
