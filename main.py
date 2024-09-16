@@ -43,7 +43,7 @@ ax.set_ylim(0, 2e13)
 
 ax.set_xlabel('Wavelength (nm)')
 ax.set_ylabel('Spectral Radiance')
-ax.set_title("Trnasition from Planck's Law to Rayleigh-Jeans Law:")
+ax.set_title("Transition from Planck's Law to Rayleigh-Jeans Law:")
 line1, = ax.plot([], [], label="Planck's Law")
 line2, = ax.plot([], [], label="Rayleigh-Jeans Law", linestyle='dashed')
 ax.legend()
@@ -71,6 +71,8 @@ def update(frame):
 #creating the animation:
 anim = animation.FuncAnimation(fig, update, frames=len(wavelengths), init_func=init, blit=True, interval=50)
 
+#displaying animation:
+plt.show()
 
 
 
