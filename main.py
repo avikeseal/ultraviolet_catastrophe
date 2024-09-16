@@ -48,3 +48,10 @@ line1, = ax.plot([], [], label="Planck's Law")
 line2, = ax.plot([], [], label="Rayleigh-Jeans Law", linestyle='dashed')
 ax.legend()
 
+#initializing the animation:
+#this function sets initial conditions for the plot:
+def init():
+    line1.set_data([], [])
+    line2.set_data([], [])
+    return line1, line2
+
