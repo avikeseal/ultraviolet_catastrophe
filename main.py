@@ -24,3 +24,9 @@ wavelengths = np.linspace(1e-9, 3e-6, 500)
 #this function calculates spectral radiance for a given wavelength and temperature:
 def plancks_law(wavelength, T):
     return  (2*h*c**2) / ((wavelength**5) * 1)  / (np.exp((h * c) / (wavelength * k_B * T)) - 1)
+
+#define rayleigh-jeans law:
+#this function calculates the spectral radiance using the rayleigh-jeans approximation
+#which is valid for longer wavelengths:
+def rayleigh_jeans_law(wavelength, T):
+    return (2*c*k_B*T) / (wavelength**4)
